@@ -1,8 +1,12 @@
-import React from 'react';
-import Publications from '../publications.json'
+import React from "react";
+import Publications from "../publications.json";
+import Counter from "../components/Counter/Counter";
+
+
 const App = () => (
   <div>
-  <button onClick={evt => console.log(evt)}>Click me!</button>
+    <Counter step={5} countPage={Publications.length}/>
+    <Counter step={10} countPage={Publications.length}/>
   </div>
 );
 
