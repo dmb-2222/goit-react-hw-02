@@ -1,12 +1,16 @@
 import React from "react";
-import Publications from "../publications.json";
-import Counter from "../components/Counter/Counter";
 
+import publications from "../publications.json";
+import Reader from "./book/Reader/Reader";
+
+import AppFilms from "./films/AppFilms";
+import Dashboard from './bank/Dashboard/Dashboard'
 
 const App = () => (
   <div>
-    <Counter step={5} countPage={Publications.length}/>
-    <Counter step={10} countPage={Publications.length}/>
+    <Reader publications={publications} />
+    <AppFilms/>
+    <Dashboard/>
   </div>
 );
 
