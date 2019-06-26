@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Controls.module.css";
+import propTypes from 'prop-types';
 
 const Controls = props => {
   const { handlePrevPage, handleNextPage } = props;
@@ -15,3 +16,9 @@ const Controls = props => {
   );
 };
 export default Controls;
+
+
+Controls.propTypes = {
+  handlePrevPage: propTypes.func,
+  handleNextPage: propTypes.func,
+};

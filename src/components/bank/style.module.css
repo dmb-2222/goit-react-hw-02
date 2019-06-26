@@ -67,15 +67,6 @@
   font-weight: bold;
 }
 
-.indicators {
-  padding: 10px;
-  margin-right: 30px;
-}
-
-.indicators:last-child {
-  margin-right: 0;
-}
-
 .deposite {
   color: green;
 }
@@ -88,27 +79,4 @@
   margin: 0 auto 50px;
   width: 40%;
   font-family: "Montserrat", sans-serif;
-}
-
-.head {
-  background-color: rgb(38, 132, 255);
-  color: #fff;
-}
-.tableCells {
-  width: 33.3%;
-}
-
-.body {
-  text-align: center;
-}
-
-.row {
-  height: 30px;
-}
-.row:nth-child(2n) {
-  background: rgb(172, 204, 245);
-}
-
-.transactionName::first-letter {
-  text-transform: uppercase;
 }

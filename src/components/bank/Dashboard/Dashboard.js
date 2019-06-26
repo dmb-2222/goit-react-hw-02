@@ -20,8 +20,7 @@ class Dashboard extends React.Component {
 
   handleInput = e => {
     e.preventDefault();
-    // e.target.value>0 ? this.setState({ valueInput: e.target.value }) : 123;
-    if (Number(e.target.value) !== 0) {
+    if (Number(e.target.value) > 0) {
       this.setState({ valueInput: e.target.value });
     } else alert("Введите сумму для проведения операции!");
   };
