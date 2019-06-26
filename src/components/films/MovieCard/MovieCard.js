@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./MovieCard.module.css";
+import propTypes from 'prop-types';
 
 const MovieCard = ({ title, posterUrl, overview }) => {
   return (
@@ -13,3 +14,9 @@ const MovieCard = ({ title, posterUrl, overview }) => {
   );
 };
 export default MovieCard;
+
+MovieCard.propTypes = {
+  title: propTypes.string,
+  posterUrl: propTypes.string,
+  overview: propTypes.string,
+};

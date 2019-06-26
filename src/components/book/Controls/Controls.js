@@ -16,8 +16,6 @@ const Controls = props => {
   );
 };
 export default Controls;
-
-
 Controls.propTypes = {
   handlePrevPage: propTypes.func,
   handleNextPage: propTypes.func,

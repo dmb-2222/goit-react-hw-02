@@ -1,6 +1,7 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import style from "./MovieGrid.module.css";
+import propTypes from "prop-types";
 
 const MovieGrid = ({ items = [] }) => {
   if (items.length > 0) {
@@ -21,5 +22,8 @@ const MovieGrid = ({ items = [] }) => {
     );
   } else return <p>No matching results!</p>;
 };
-
 export default MovieGrid;
+
+MovieGrid.propTypes = {
+  items: propTypes.arrayOf(propTypes.object).isRequired,
+};

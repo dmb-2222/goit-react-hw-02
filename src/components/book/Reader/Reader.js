@@ -2,6 +2,7 @@ import React from "react";
 import Controls from "../Controls/Controls";
 import Counter from "../Counter/Counter";
 import Publication from "../Publication/Publicution";
+import propTypes from 'prop-types';
 
 const LsPublicationService = {
   set(pubIndex) {
@@ -76,3 +77,7 @@ class Reader extends React.Component {
 }
 
 export default Reader;
+
+Reader.propTypes = {
+  props: propTypes.arrayOf(propTypes.object),
+};

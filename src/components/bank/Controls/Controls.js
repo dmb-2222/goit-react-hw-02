@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../style.module.css";
+import propTypes from "prop-types";
 const Controls = ({ onInputChange, deposit, withdraw, resetForm }) => {
   return (
     <section className={style.controls}>
@@ -29,3 +30,10 @@ const Controls = ({ onInputChange, deposit, withdraw, resetForm }) => {
   );
 };
 export default Controls;
+
+Controls.propTypes = {
+  onInputChange: propTypes.func,
+  deposit: propTypes.func,
+  withdraw: propTypes.func,
+  resetForm: propTypes.string
+};

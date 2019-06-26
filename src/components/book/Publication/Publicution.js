@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Publication.module.css";
+import propTypes from 'prop-types';
 
 function Publication(props) {
   return (
@@ -11,3 +12,8 @@ function Publication(props) {
 }
 
 export default Publication;
+
+Publication.propTypes = {
+  title: propTypes.string,
+  text: propTypes.string,
+};
