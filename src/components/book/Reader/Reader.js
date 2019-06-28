@@ -2,7 +2,8 @@ import React from "react";
 import Controls from "../Controls/Controls";
 import Counter from "../Counter/Counter";
 import Publication from "../Publication/Publicution";
-import propTypes from 'prop-types';
+
+import propTypes from "prop-types";
 
 const LsPublicationService = {
   set(pubIndex) {
@@ -22,11 +23,25 @@ class Reader extends React.Component {
     const currentPubIndex = LsPublicationService.get() || DEFAULT_PUB_INDEX;
     this.state = {
       activePublication: props.publications[currentPubIndex],
-      currentPage: currentPubIndex
+      currentPage: currentPubIndex,
+      isActivPrevPage: true,
+      isActivNextPage: false
     };
+    this.lengthPub = props.publications.length;
   }
 
   handleNextPage = () => {
+    if (this.state.currentPage === 1) {
+      this.setState(() => ({ isActivPrevPage: false }));
+    }
+    if (this.state.currentPage === 0) {
+      this.setState(() => ({ isActivPrevPage: false }));
+    }
+
+    if (this.state.currentPage + 2 === this.lengthPub) {
+      this.setState(() => ({ isActivNextPage: true }));
+    }
+
     this.setState((prevState, props) => {
       const nextPage = prevState.currentPage + 1;
 
@@ -36,12 +51,20 @@ class Reader extends React.Component {
 
       return {
         currentPage: nextPage,
-        activePublication: props.publications[nextPage]
+        activePublication: props.publications[nextPage],
+        isActivPrevPage: false
       };
     });
   };
 
   handlePrevPage = () => {
+    if (this.state.currentPage === 1) {
+      this.setState(() => ({ isActivPrevPage: true }));
+    }
+    if (this.state.currentPage + 1 === this.lengthPub) {
+      this.setState(() => ({ isActivNextPage: false }));
+    }
+
     this.setState((prevState, props) => {
       const nextPage = prevState.currentPage - 1;
 
@@ -60,16 +83,20 @@ class Reader extends React.Component {
     const publicationsCount = this.props.publications.length;
     const {
       activePublication: { title, text },
-      currentPage
+      currentPage,
+      isActivPrevPage,
+      isActivNextPage
     } = this.state;
 
     return (
-      <div className='reader'>
+      <div className="reader">
         <Publication title={title} text={text} />
         <Counter pagesCount={publicationsCount} currentPage={currentPage + 1} />
         <Controls
           handlePrevPage={this.handlePrevPage}
           handleNextPage={this.handleNextPage}
+          isActivPrevPage={isActivPrevPage}
+          isActivNextPage={isActivNextPage}
         />
       </div>
     );
@@ -79,5 +106,5 @@ class Reader extends React.Component {
 export default Reader;
 
 Reader.propTypes = {
-  props: propTypes.arrayOf(propTypes.object),
+  props: propTypes.arrayOf(propTypes.object)
 };

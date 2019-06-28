@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../style.module.css";
 import propTypes from "prop-types";
-const Controls = ({ onInputChange, deposit, withdraw, resetForm }) => {
+const Controls = ({ onInputChange, deposit, withdraw, resetForm}) => {
   return (
     <section className={style.controls}>
       <input
