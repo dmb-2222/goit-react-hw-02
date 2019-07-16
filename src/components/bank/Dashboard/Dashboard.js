@@ -28,9 +28,9 @@ class Dashboard extends React.Component {
 
   handleInput = e => {
     e.preventDefault();
-    if (Number(e.target.value) > 0) {
+    // if (Number(e.target.value) >= 0) {
       this.setState({ valueInput: e.target.value });
-    } else this.unCorrectInput();
+    // } else this.unCorrectInput();
   };
 
   createNewOperation = typyOperation => {
@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
   };
 
   handleCkickDeposit = () => {
-    if (this.state.valueInput !== "") {
+    if (this.state.valueInput !== "" && this.state.valueInput > 0) {
       const operation = this.createNewOperation("Deposit");
       this.setState(prevState => {
         return {
@@ -58,7 +58,7 @@ class Dashboard extends React.Component {
   };
 
   handleCkickWithdraw = () => {
-    if (this.state.valueInput !== "") {
+    if (this.state.valueInput !== "" && this.state.valueInput > 0) {
       const operation = this.createNewOperation("Withdraw");
       this.setState(prevState => {
         if (this.state.balance >= this.state.valueInput) {

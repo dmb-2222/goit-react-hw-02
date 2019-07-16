@@ -19,7 +19,6 @@ const DEFAULT_PUB_INDEX = 0;
 class Reader extends React.Component {
   constructor(props) {
     super(props);
-
     const currentPubIndex = LsPublicationService.get() || DEFAULT_PUB_INDEX;
     this.state = {
       activePublication: props.publications[currentPubIndex],
